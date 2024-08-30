@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEjemplo.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,30"
+            VerticalOptions="Start">
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Obtener Consejos de Ejercicio"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+
+            <ActivityIndicator x:Name="loading" HeightRequest="30" Color="Blue" IsRunning="True" 
+                               IsVisible="false"/>
+
+            <ListView x:Name="listViewConsejos">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Ejercicio}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Consejo}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
